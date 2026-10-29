@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hooklab"
+version = "1.0.0"
+description = "Plan, run and verify function hooks: an in-process tracer for Python, Frida, GDB and LD_PRELOAD emitters, and 50 validated skills."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Wsh7Ash" }]
+keywords = ["hooking", "instrumentation", "frida", "gdb", "reverse-engineering", "skills"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+hooklab = "hooklab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

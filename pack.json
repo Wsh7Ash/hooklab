@@ -1,0 +1,611 @@
+{
+  "name": "hooklab",
+  "version": "1.0.0",
+  "category": "dynamic-instrumentation",
+  "license": "MIT",
+  "runtime": "Claude Code, opencode, or any agent runtime that loads SKILL.md files",
+  "description": "50 validated skills for hooking and instrumentation, plus a CLI that runs a hook plan in-process, verifies the capture against expectations, and emits Frida, GDB or LD_PRELOAD scripts from the same plan.",
+  "skill_count": 50,
+  "skills": [
+    {
+      "slug": "symbol-resolution-order",
+      "title": "Symbol Resolution Order",
+      "path": "skills/symbol-resolution-order/SKILL.md",
+      "tags": [
+        "hooking",
+        "resolve",
+        "symbols"
+      ],
+      "meta_phase": "resolve",
+      "sha256": "b5cc304f83f953fc669760b1e743e65ff908375a71d932c061c495da804bb838"
+    },
+    {
+      "slug": "library-vs-symbol-name",
+      "title": "Library Versus Symbol Name",
+      "path": "skills/library-vs-symbol-name/SKILL.md",
+      "tags": [
+        "hooking",
+        "resolve",
+        "planning"
+      ],
+      "meta_phase": "resolve",
+      "sha256": "c82cb7379315b91dd34f2515dc922da5b977560ea00f5a1965961901611549d9"
+    },
+    {
+      "slug": "stripped-binary-symbols",
+      "title": "Stripped Binary Symbols",
+      "path": "skills/stripped-binary-symbols/SKILL.md",
+      "tags": [
+        "hooking",
+        "resolve",
+        "symbols"
+      ],
+      "meta_phase": "resolve",
+      "sha256": "0a5c63f49eb05fe2e3c902fdfbf9f62ce639d4bea749b37c1623c6645241911b"
+    },
+    {
+      "slug": "plt-got-identification",
+      "title": "PLT GOT Identification",
+      "path": "skills/plt-got-identification/SKILL.md",
+      "tags": [
+        "hooking",
+        "resolve",
+        "elf"
+      ],
+      "meta_phase": "resolve",
+      "sha256": "d83b9e6b69cafa4476b6f17683307078659388ff4e53bcbd8478f9a65a3ed9af"
+    },
+    {
+      "slug": "version-mismatch-detection",
+      "title": "Version Mismatch Detection",
+      "path": "skills/version-mismatch-detection/SKILL.md",
+      "tags": [
+        "hooking",
+        "resolve",
+        "versions"
+      ],
+      "meta_phase": "resolve",
+      "sha256": "55dd2d11f07b44be8e90d25fe714f5fe586f581749450d9303581c66d4756a02"
+    },
+    {
+      "slug": "function-address-verification",
+      "title": "Function Address Verification",
+      "path": "skills/function-address-verification/SKILL.md",
+      "tags": [
+        "hooking",
+        "resolve",
+        "verification"
+      ],
+      "meta_phase": "resolve",
+      "sha256": "bacc3ee28d9bc30eab12763f2ba9a41d09e8acb8f95264d01ea0f8eeab0d28ea"
+    },
+    {
+      "slug": "inline-and-static-functions",
+      "title": "Inline and Static Functions",
+      "path": "skills/inline-and-static-functions/SKILL.md",
+      "tags": [
+        "hooking",
+        "resolve",
+        "optimisation"
+      ],
+      "meta_phase": "resolve",
+      "sha256": "bbe08b511f8d1c29b9569eb583e23d1dba234abdf82fb93852d7c3bf7bc2530f"
+    },
+    {
+      "slug": "call-convention-identification",
+      "title": "Call Convention Identification",
+      "path": "skills/call-convention-identification/SKILL.md",
+      "tags": [
+        "hooking",
+        "resolve",
+        "abi"
+      ],
+      "meta_phase": "resolve",
+      "sha256": "113fad91e9789459c2f3abee37b7ae16491919d03e5b4677c2b367ec58f87a81"
+    },
+    {
+      "slug": "dependency-map-first",
+      "title": "Dependency Map First",
+      "path": "skills/dependency-map-first/SKILL.md",
+      "tags": [
+        "hooking",
+        "resolve",
+        "recon"
+      ],
+      "meta_phase": "resolve",
+      "sha256": "c6f149187bda5e6c5b4afaa4650a3560dd2061e1b6b768a5721d48073a4fe834"
+    },
+    {
+      "slug": "tracer-scope-minimisation",
+      "title": "Tracer Scope Minimisation",
+      "path": "skills/tracer-scope-minimisation/SKILL.md",
+      "tags": [
+        "hooking",
+        "instrument",
+        "performance"
+      ],
+      "meta_phase": "instrument",
+      "sha256": "c92f6ba9c502dae2013dad2f1eb251af50e8224030239b7bb2e19afc39632f4e"
+    },
+    {
+      "slug": "breakpoint-selection",
+      "title": "Breakpoint Selection",
+      "path": "skills/breakpoint-selection/SKILL.md",
+      "tags": [
+        "hooking",
+        "instrument",
+        "method"
+      ],
+      "meta_phase": "instrument",
+      "sha256": "e1723b28d020f593da4e30a1610c09c799c5666dc8b2a7b6253793a310c73c2f"
+    },
+    {
+      "slug": "hook-versus-breakpoint",
+      "title": "Hook Versus Breakpoint",
+      "path": "skills/hook-versus-breakpoint/SKILL.md",
+      "tags": [
+        "hooking",
+        "instrument",
+        "method"
+      ],
+      "meta_phase": "instrument",
+      "sha256": "8ff0d92841bac355f0ed0ba6e919f04846cc89c477909a05bcc73c83d553c941"
+    },
+    {
+      "slug": "argument-capture-safety",
+      "title": "Argument Capture Safety",
+      "path": "skills/argument-capture-safety/SKILL.md",
+      "tags": [
+        "hooking",
+        "instrument",
+        "safety"
+      ],
+      "meta_phase": "instrument",
+      "sha256": "b2ab8fd1c96942a7a03747c49e28c2a5d7237f9b2c1f938738750e906765471d"
+    },
+    {
+      "slug": "read-only-hook-discipline",
+      "title": "Read Only Hook Discipline",
+      "path": "skills/read-only-hook-discipline/SKILL.md",
+      "tags": [
+        "hooking",
+        "instrument",
+        "safety"
+      ],
+      "meta_phase": "instrument",
+      "sha256": "014917e56dddec23a447f0b110f9a486c7c8bd8631bbb3f8fbd70a8a5a4e765c"
+    },
+    {
+      "slug": "process-attach-timing",
+      "title": "Process Attach Timing",
+      "path": "skills/process-attach-timing/SKILL.md",
+      "tags": [
+        "hooking",
+        "instrument",
+        "timing"
+      ],
+      "meta_phase": "instrument",
+      "sha256": "5d6448f9e03a8582efe922ac4b5fd323d77fabf4f50881d0311c640afa13ba86"
+    },
+    {
+      "slug": "injection-window",
+      "title": "Injection Window",
+      "path": "skills/injection-window/SKILL.md",
+      "tags": [
+        "hooking",
+        "instrument",
+        "scope"
+      ],
+      "meta_phase": "instrument",
+      "sha256": "8256d65dcfb4ef18d3b554cd6d4b62d8c88d1bcd1d68cf2131f598b6b459e2f6"
+    },
+    {
+      "slug": "multi-hook-ordering",
+      "title": "Multi Hook Ordering",
+      "path": "skills/multi-hook-ordering/SKILL.md",
+      "tags": [
+        "hooking",
+        "instrument",
+        "ordering"
+      ],
+      "meta_phase": "instrument",
+      "sha256": "ba3400b1b23632a1cc555f1831ff30e250145370c096c32e6772d2303a522d31"
+    },
+    {
+      "slug": "hook-idempotence",
+      "title": "Hook Idempotence",
+      "path": "skills/hook-idempotence/SKILL.md",
+      "tags": [
+        "hooking",
+        "instrument",
+        "reliability"
+      ],
+      "meta_phase": "instrument",
+      "sha256": "11fb641b52562251baa25f631822f867926660bcc565648604e1a2f4c5941982"
+    },
+    {
+      "slug": "interceptor-attach",
+      "title": "Interceptor Attach",
+      "path": "skills/interceptor-attach/SKILL.md",
+      "tags": [
+        "hooking",
+        "hook",
+        "native"
+      ],
+      "meta_phase": "hook",
+      "sha256": "e1297f4bc17e4d3c070d3cc5b8020d4ab6cc67a5aff06fea57664c2f8c1b4059"
+    },
+    {
+      "slug": "plt-got-patching",
+      "title": "PLT GOT Patching",
+      "path": "skills/plt-got-patching/SKILL.md",
+      "tags": [
+        "hooking",
+        "hook",
+        "elf"
+      ],
+      "meta_phase": "hook",
+      "sha256": "0c24dfaf5b9bb561c0b8e44b8117fc4934a42583361e83e95b78949fd09ac912"
+    },
+    {
+      "slug": "inline-hook-trampoline",
+      "title": "Inline Hook Trampoline",
+      "path": "skills/inline-hook-trampoline/SKILL.md",
+      "tags": [
+        "hooking",
+        "hook",
+        "native"
+      ],
+      "meta_phase": "hook",
+      "sha256": "08bf9d8fcfc0f0591237d9781109050d980af309220d33e321affb09c0f22dac"
+    },
+    {
+      "slug": "syscall-level-hooking",
+      "title": "Syscall Level Hooking",
+      "path": "skills/syscall-level-hooking/SKILL.md",
+      "tags": [
+        "hooking",
+        "hook",
+        "syscall"
+      ],
+      "meta_phase": "hook",
+      "sha256": "01a23dba0f3525d7023707559eb0466192a2b5313c135e598679c42fcb0bec9b"
+    },
+    {
+      "slug": "managed-runtime-hooking",
+      "title": "Managed Runtime Hooking",
+      "path": "skills/managed-runtime-hooking/SKILL.md",
+      "tags": [
+        "hooking",
+        "hook",
+        "runtime"
+      ],
+      "meta_phase": "hook",
+      "sha256": "866885885faee2f356e1f2e7a9d4d2c0ff9206bc3d9efe4134460892121092b4"
+    },
+    {
+      "slug": "script-hook-vs-native-hook",
+      "title": "Script Hook Versus Native Hook",
+      "path": "skills/script-hook-vs-native-hook/SKILL.md",
+      "tags": [
+        "hooking",
+        "hook",
+        "interpreters"
+      ],
+      "meta_phase": "hook",
+      "sha256": "4e0f80e6c6c6f4449028fdd4b23f7861e0430606bea46f6f854436e9ef477495"
+    },
+    {
+      "slug": "dtrace-usdt-probes",
+      "title": "DTrace USDT Probes",
+      "path": "skills/dtrace-usdt-probes/SKILL.md",
+      "tags": [
+        "hooking",
+        "hook",
+        "tracing"
+      ],
+      "meta_phase": "hook",
+      "sha256": "a98cdfb39b3531c303ae35b8e70265b04b24ef0ee8959011ed7db06d109384b2"
+    },
+    {
+      "slug": "python-trace-hooks",
+      "title": "Python Trace Hooks",
+      "path": "skills/python-trace-hooks/SKILL.md",
+      "tags": [
+        "hooking",
+        "hook",
+        "python"
+      ],
+      "meta_phase": "hook",
+      "sha256": "46ebf264187d2ff210dfdd6cf15a57beff1cba63f7eecdd50f04ff53239f2fa9"
+    },
+    {
+      "slug": "argument-formatting",
+      "title": "Argument Formatting",
+      "path": "skills/argument-formatting/SKILL.md",
+      "tags": [
+        "hooking",
+        "capture",
+        "format"
+      ],
+      "meta_phase": "capture",
+      "sha256": "0ecd4e509bb1f42d5b77eceaaa3a46b726c1440ef5cd1e5c970c95a690f9c397"
+    },
+    {
+      "slug": "return-value-capture",
+      "title": "Return Value Capture",
+      "path": "skills/return-value-capture/SKILL.md",
+      "tags": [
+        "hooking",
+        "capture",
+        "returns"
+      ],
+      "meta_phase": "capture",
+      "sha256": "4d9997533ddaabc399d82eff4fa8764cd1bbe01321ef459a53406bc211b7a047"
+    },
+    {
+      "slug": "struct-and-buffer-reading",
+      "title": "Struct and Buffer Reading",
+      "path": "skills/struct-and-buffer-reading/SKILL.md",
+      "tags": [
+        "hooking",
+        "capture",
+        "memory"
+      ],
+      "meta_phase": "capture",
+      "sha256": "d0bb450f0e759fa5921cc4850b608a2613aa243bfbb26d119f8e0f7eaff15000"
+    },
+    {
+      "slug": "string-safety-bounds",
+      "title": "String Safety Bounds",
+      "path": "skills/string-safety-bounds/SKILL.md",
+      "tags": [
+        "hooking",
+        "capture",
+        "safety"
+      ],
+      "meta_phase": "capture",
+      "sha256": "3643ae6ca2afd88f6cac68a38940ff469ad8771aa8548ffac2eb394b54bad111"
+    },
+    {
+      "slug": "capture-noise-filtering",
+      "title": "Capture Noise Filtering",
+      "path": "skills/capture-noise-filtering/SKILL.md",
+      "tags": [
+        "hooking",
+        "capture",
+        "noise"
+      ],
+      "meta_phase": "capture",
+      "sha256": "5f9b2210a80dcabc66aa8ab7f00dc1828f577bf6ffaada97d4a3a7a7dbb80416"
+    },
+    {
+      "slug": "capture-deduplication",
+      "title": "Capture Deduplication",
+      "path": "skills/capture-deduplication/SKILL.md",
+      "tags": [
+        "hooking",
+        "capture",
+        "readability"
+      ],
+      "meta_phase": "capture",
+      "sha256": "274738490c4b990cb057099e0eb3b5b9a9e47397ca96bae4b0ee1e9871add724"
+    },
+    {
+      "slug": "async-and-thread-capture",
+      "title": "Async and Thread Capture",
+      "path": "skills/async-and-thread-capture/SKILL.md",
+      "tags": [
+        "hooking",
+        "capture",
+        "concurrency"
+      ],
+      "meta_phase": "capture",
+      "sha256": "29baefcf7bed52bcd5671a6f05baa19dfdaebe625de71127e8307c4283c9e81c"
+    },
+    {
+      "slug": "capture-timestamping",
+      "title": "Capture Timestamping",
+      "path": "skills/capture-timestamping/SKILL.md",
+      "tags": [
+        "hooking",
+        "capture",
+        "timing"
+      ],
+      "meta_phase": "capture",
+      "sha256": "bc7f18f879ed0090aef712566c34da0ba3690b267e755253e543073e6fd5567c"
+    },
+    {
+      "slug": "hook-fired-proof",
+      "title": "Hook Fired Proof",
+      "path": "skills/hook-fired-proof/SKILL.md",
+      "tags": [
+        "hooking",
+        "verify",
+        "evidence"
+      ],
+      "meta_phase": "verify",
+      "sha256": "7388b2011ce9bdc0498f89e04b453a4b92b1f0f62d46ad6222808c76cb852399"
+    },
+    {
+      "slug": "negative-control-hook",
+      "title": "Negative Control Hook",
+      "path": "skills/negative-control-hook/SKILL.md",
+      "tags": [
+        "hooking",
+        "verify",
+        "control"
+      ],
+      "meta_phase": "verify",
+      "sha256": "464e74e08a1fb8cbe799e0e6dfee71f06e240868d94828edad90e45f084367f9"
+    },
+    {
+      "slug": "before-after-behaviour-parity",
+      "title": "Before After Behaviour Parity",
+      "path": "skills/before-after-behaviour-parity/SKILL.md",
+      "tags": [
+        "hooking",
+        "verify",
+        "parity"
+      ],
+      "meta_phase": "verify",
+      "sha256": "939617f4106c118a735ec5f18a3b8520955203214b96bbaa37fb5d879a23ffe5"
+    },
+    {
+      "slug": "side-effect-check",
+      "title": "Side Effect Check",
+      "path": "skills/side-effect-check/SKILL.md",
+      "tags": [
+        "hooking",
+        "verify",
+        "side-effects"
+      ],
+      "meta_phase": "verify",
+      "sha256": "16fdfdf24199532dace325a0308dd004ce4238f028adc4a28aa5eda5f770e34d"
+    },
+    {
+      "slug": "capture-completeness",
+      "title": "Capture Completeness",
+      "path": "skills/capture-completeness/SKILL.md",
+      "tags": [
+        "hooking",
+        "verify",
+        "completeness"
+      ],
+      "meta_phase": "verify",
+      "sha256": "dc4d3f9cc26256a8dbcfb801d43746725d02f2984b8c3b6737bf26298f64587b"
+    },
+    {
+      "slug": "hook-overhead-measurement",
+      "title": "Hook Overhead Measurement",
+      "path": "skills/hook-overhead-measurement/SKILL.md",
+      "tags": [
+        "hooking",
+        "verify",
+        "performance"
+      ],
+      "meta_phase": "verify",
+      "sha256": "c370d4ef4176bf2dde55eeb70b5641ec08c1b99e9d58b8e0f6d09a4f3d43d96c"
+    },
+    {
+      "slug": "regression-under-hook",
+      "title": "Regression Under Hook",
+      "path": "skills/regression-under-hook/SKILL.md",
+      "tags": [
+        "hooking",
+        "verify",
+        "regression"
+      ],
+      "meta_phase": "verify",
+      "sha256": "fbc7f61c438925cb73f91cb787fa97b9e5c93b41a2d4a8f084b7849596553f92"
+    },
+    {
+      "slug": "reproducibility-of-capture",
+      "title": "Reproducibility of Capture",
+      "path": "skills/reproducibility-of-capture/SKILL.md",
+      "tags": [
+        "hooking",
+        "verify",
+        "reproducibility"
+      ],
+      "meta_phase": "verify",
+      "sha256": "2d07c998c3083e6c616972ab929dcd264564d017f0e9c8c59a264ab667cd8360"
+    },
+    {
+      "slug": "detach-and-restore",
+      "title": "Detach and Restore",
+      "path": "skills/detach-and-restore/SKILL.md",
+      "tags": [
+        "hooking",
+        "teardown",
+        "safety"
+      ],
+      "meta_phase": "teardown",
+      "sha256": "ac572ce3cd33f2afdc8c23480d218db24b3244c0cc2358436939e474a96f7d2f"
+    },
+    {
+      "slug": "patch-restoration",
+      "title": "Patch Restoration",
+      "path": "skills/patch-restoration/SKILL.md",
+      "tags": [
+        "hooking",
+        "teardown",
+        "patches"
+      ],
+      "meta_phase": "teardown",
+      "sha256": "8be6ef207fa1ec2f5821bfdd3bb5a16372c8a1398886cd9ea9bf2aa970c9e8eb"
+    },
+    {
+      "slug": "process-state-check",
+      "title": "Process State Check",
+      "path": "skills/process-state-check/SKILL.md",
+      "tags": [
+        "hooking",
+        "teardown",
+        "state"
+      ],
+      "meta_phase": "teardown",
+      "sha256": "347c3d7e64b209013876fafb068346449688a4016d04674eb3240ff2a41be4da"
+    },
+    {
+      "slug": "artifact-cleanup",
+      "title": "Artifact Cleanup",
+      "path": "skills/artifact-cleanup/SKILL.md",
+      "tags": [
+        "hooking",
+        "teardown",
+        "hygiene"
+      ],
+      "meta_phase": "teardown",
+      "sha256": "3788cac24fb198df457b690bcecc94faae10929d24c7f18e591039604d97e3ae"
+    },
+    {
+      "slug": "capture-redaction",
+      "title": "Capture Redaction",
+      "path": "skills/capture-redaction/SKILL.md",
+      "tags": [
+        "hooking",
+        "teardown",
+        "privacy"
+      ],
+      "meta_phase": "teardown",
+      "sha256": "b5b34e8a453dd49c1133ec178ce8c2a2b52eb85a7201ff7e0aa991838adffc58"
+    },
+    {
+      "slug": "evidence-packaging",
+      "title": "Evidence Packaging",
+      "path": "skills/evidence-packaging/SKILL.md",
+      "tags": [
+        "hooking",
+        "teardown",
+        "evidence"
+      ],
+      "meta_phase": "teardown",
+      "sha256": "83921bd075db3685d3413be9c262f66ff201e7a1f110da0769c07bc099624b96"
+    },
+    {
+      "slug": "disclosure-of-instrumentation",
+      "title": "Disclosure of Instrumentation",
+      "path": "skills/disclosure-of-instrumentation/SKILL.md",
+      "tags": [
+        "hooking",
+        "teardown",
+        "reporting"
+      ],
+      "meta_phase": "teardown",
+      "sha256": "7be51b648bf93c25ab0f4ea3a1ca51e934c2ebf5c7f7a11faccea7cc02be41d5"
+    },
+    {
+      "slug": "post-hook-retest",
+      "title": "Post Hook Retest",
+      "path": "skills/post-hook-retest/SKILL.md",
+      "tags": [
+        "hooking",
+        "teardown",
+        "retest"
+      ],
+      "meta_phase": "teardown",
+      "sha256": "2605339eaafe843a3449a915909b79ce9dc748b4872dd578055250d04858e0ec"
+    }
+  ]
+}
